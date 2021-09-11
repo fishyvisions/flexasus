@@ -1,0 +1,38 @@
+.button-default{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-default img{
+    height: 18px ;
+}
+
+.button-type-outlined{
+    background-color: none;
+    border: 2px solid black;
+}
+
+.button-size-small {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+  .button-size-small img{
+      height: 16px;
+  }
+  .button-size-medium {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  .button-size-large {
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+
+  .button-size-wide {
+    font-size: 16px;
+    padding: 12px 44px;
+    width: 100%;
+  }
+  
+
