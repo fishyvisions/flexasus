@@ -29,7 +29,7 @@ WithIcon.args = {
 
 export const MultipleButtons = () => (<div style={{display:"flex", flexWrap:"wrap" , alignItems:"center" }} >
   <div style={{margin:"20px 20px"}} >
-    <Button >Defalut</Button>
+    <Button >Default</Button>
   </div>
   <div style={{margin:"20px 20px"}} >
     <Button borderType="rounded" >Rounded</Button>

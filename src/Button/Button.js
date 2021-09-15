@@ -29,7 +29,6 @@ export const Button = ({
     bgColor = "transparent";
   }
 
-  console.log(hoverType);
   let buttonClass = cx(
     `text-${size}`,
     `border-${borderStyle}`,
