@@ -26,6 +26,7 @@ module.exports = {
         DEFAULT: '6px',
         'default':'6px',
         'rounded':"20px",
+        'circular':"50%",
         'none':"0px"
       }
     },
