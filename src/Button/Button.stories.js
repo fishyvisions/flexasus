@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonIconDefalut from '../assets/Button/button.svg'
+import "./button.css"
 
 import {Button}  from '../index';
 
@@ -14,9 +15,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
   color:"lightgrey",
-  borderSpread:true,
-  spreadColor:"#BFBEFC",
-
 };
 
 
@@ -28,18 +26,20 @@ WithIcon.args = {
 };
 
 
-// const OutlineButton= Template.bind({});
-// OutlineButton.args = {
-//   label: 'Outline',
-//   icon:ButtonIconDefalut,
-//   borderSpread:true,
-//   spreadColor:"#BFBEFC",
-//   bgColor:"#BFBEFC",
-//   design:"outlined"
 
-// };
-
-export const MultipleButtons = () => (<div style={{display:"flex", flexWrap:"wrap" }} >
+export const MultipleButtons = () => (<div style={{display:"flex", flexWrap:"wrap" , alignItems:"center" }} >
+  <div style={{margin:"20px 20px"}} >
+    <Button >Default</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button borderType="rounded" >Rounded</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button size="small" >Small</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button size="large" >Large</Button>
+  </div>
   <div style={{margin:"20px 20px"}} >
     <Button borderSpread={true} spreadColor="#BFBEFC"  color="white"  >FilledBorder</Button>
   </div>
@@ -54,6 +54,9 @@ export const MultipleButtons = () => (<div style={{display:"flex", flexWrap:"wra
   </div>
   <div style={{margin:"20px 20px"}} >
     <Button design="outlined"  color="black"  >FilledBorder</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button borderSpread={true} spreadColor="pink" design="outlined"  color="black"  >Outlined</Button>
   </div>
   <div style={{margin:"20px 20px"}} >
     <Button borderSpread={true} spreadColor="pink" design="outlined"  color="black"  >Outlined</Button>
@@ -74,12 +77,43 @@ export const MultipleButtons = () => (<div style={{display:"flex", flexWrap:"wra
     <Button icon={ButtonIconDefalut} bgColor="black" color="white"  ></Button>
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Button icon={ButtonIconDefalut} bgColor="black" color="white" borderType="rounded" ></Button>
+    <Button icon={ButtonIconDefalut} type="submit" onClick={()=>alert("you clicked")} bgColor="black" color="white" borderType="rounded" ></Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button design="outlined"  color="black"  >HoverDefault</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button design="outlined"  hoverType="glow" color="black"  >HoverGlow</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut} iconAlign="right" bgColor="black" color="white" hoverType="glow" glowColor="cyan"  >HoverGlow</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut}  bgColor="black" color="white" hoverType="float" >HoverFloat</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button  design="outlined"  color="#610BEF" hoverType="float" >HoverFloat</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut}  bgColor="black" color="white" hoverType="fade" >HoverFade</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button borderSpread={true} spreadColor="#BFBEFC"  hoverType="fade" color="white"  >HoverFade</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut} iconAlign="right" bgColor="black" color="white" hoverType="none" >No-Hover</Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut} bgColor="black" borderType="circular"  ></Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut} borderSpread={true} size="small" spreadColor="#BFBEFC" borderType="circular"  ></Button>
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Button icon={ButtonIconDefalut} borderSpread={true} size="large" spreadColor="#BFBEFC" borderType="circular"  hoverType="glow" glowColor="pink" ></Button>
   </div>
   
-  
-  
-</div>)
+</div>) 
 
 
 
