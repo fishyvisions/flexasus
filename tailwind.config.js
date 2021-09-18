@@ -7,6 +7,7 @@ module.exports = {
         primary: "#610BEF",
       },
       fontSize: {
+        label:"11px",
         small: "13px",
         medium: "16px",
         large: "18px",

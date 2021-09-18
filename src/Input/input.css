@@ -1,0 +1,147 @@
+.input-default input{
+  font-size: 14px;
+  height: 46px;
+  padding: 2px 28px 2px 35px;
+  padding-left: 12px;
+  display: block;
+  width: 300px;
+  border: none;
+  background-color: #EFF0F7;
+  border-radius: 12px;
+}
+
+.input-default input:focus{
+  outline: none;
+  box-shadow: 0px 0px 2px #0066ff;
+}
+
+
+.input-with-label {
+  position: relative;
+
+}
+
+label{
+  color: #6E7191;
+  font-weight: 400;
+}
+
+
+.input-with-label label {
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  transition: 0.2s ease all;
+  text-transform: capitalize;
+}
+
+.input-with-label input {
+  font-size: 14px;
+  height: 46px;
+  padding: 12px 28px 2px 35px;
+  padding-left: 12px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-radius: 12px;
+}
+.input-with-label input:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px #0066ff;
+}
+
+.input-icon{
+    position: absolute;
+    margin-left: 8px;
+    max-width: 15px;
+    max-height: 40px;
+}
+
+
+.input-clear-button{
+    position: relative;
+    margin-left: -23px;
+    background-color: transparent;
+    color: gray;  
+    font-size: 14px;
+    font-weight: 700;
+    visibility: hidden;  
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+ 
+
+input::placeholder {
+  color: transparent;
+  transition: 0.2s ease all;
+}
+
+input:focus::placeholder {
+  color: rgb(190, 190, 190);
+}
+
+
+/* -----  active state  ----- */
+
+.input-with-label input:focus ~ label{
+  top: 3px;
+  padding-top: 0px;
+  font-size: 10px;
+  color: #5264ae;
+}
+
+
+
+.input-with-label input:focus ~ button {
+  visibility: visible;
+}
+
+
+.input-with-icon input{
+  padding: 12px 28px 2px 35px;
+  padding-left: 35px;
+  
+}
+
+.input-with-icon label {
+
+  padding-left: 30px;
+ 
+}
+
+.input-with-icon-only input{
+  font-size: 14px;
+  height: 46px;
+  padding: 2px 28px 2px 35px;
+  padding-left: 35px;
+  display: block;
+  width: 300px;
+  border: none;
+  background-color: #EFF0F7;
+  border-radius: 12px;
+}
+.input-with-icon-only input:focus{
+  outline: none;
+  box-shadow: 0px 0px 2px #0066ff;
+}
+
+.keepUp label {
+  top: 3px;
+  padding-top: 0px;
+  font-size: 10px;
+  color: #5264ae;
+}
+
+.keepUp button {
+  visibility: visible;
+}
