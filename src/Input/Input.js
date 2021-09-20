@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./input.css";
 import cx from "classnames";
@@ -8,21 +8,44 @@ import Visible from "../assets/Input/visible.svg";
 
 export const Input = ({
   label,
-  value,
+  defaultValue,
   placeholder,
   icon,
   type,
-  messageType,
-  message,
+  defaultMessageType,
+  defaultMessage,
   bgColor,
   color,
+  labelColor,
   borderColor,
   style,
   required,
+  field,
+  form,
   ...props
 }) => {
-  const [inputValue, setinputValue] = useState(value);
+  const { value, onChange } = field || {};
+  const { errors, setFieldValue, submitCount } = form || {};
+  const [inputValue, setinputValue] = useState(value || defaultValue);
   const [showPassword, setShowPassword] = useState(false);
+  const [messageType, setMessageType] = useState(defaultMessageType);
+  const [message, setMessage] = useState(defaultMessage);
+
+  useEffect(() => {
+    if (errors || submitCount > 0) {
+      if (inputValue?.length > 0 || submitCount > 0) {
+        setMessageType(
+          errors[field?.name]
+            ? "error"
+            : inputValue?.length > 0
+            ? "success"
+            : ""
+        );
+        setMessage(errors[field?.name]);
+      }
+    }
+  }, [errors, inputValue, submitCount]);
+
   let inputClass = cx(
     {
       "input-default": !label && !icon,
@@ -37,21 +60,25 @@ export const Input = ({
       "input-with-icon-only": !label && icon,
     },
     {
-      keepUp: inputValue?.length > 0,
-    }
+      keepUp: inputValue?.length > 0 || field?.value?.length > 0,
+    },
+    "mb-2"
   );
 
   const clearInput = () => {
+    if (form) {
+      setFieldValue(field?.name, "");
+    }
     setinputValue("");
   };
   const passwordToggle = () => {
     setShowPassword(!showPassword);
   };
-  
+  const onChangeValue = (e) => setinputValue(e.target.value);
 
   return (
     <div className={inputClass}>
-      <div className="flex items-center">
+      <div className="flex items-center mb-1">
         {icon && <img src={icon} alt="icon" className="input-icon" />}
         <input
           type={(type === "password" && showPassword && "text") || type}
@@ -66,12 +93,14 @@ export const Input = ({
               borderColor
             }`,
             color: color,
-            ...style
+            ...style,
           }}
           value={inputValue || ""}
-          onChange={(e) => setinputValue(e.target.value)}
+          onKeyUp={onChangeValue}
           placeholder={placeholder}
-          required = {required }
+          required={required}
+          {...field}
+          onChange={onChange || onChangeValue}
           {...props}
         />
         {label && (
@@ -79,11 +108,15 @@ export const Input = ({
             style={{
               color:
                 (messageType === "error" && "#9E0038") ||
-                (messageType === "success" && "#008A00"),
+                (messageType === "success" && "#008A00") ||
+                labelColor,
             }}
             className="flex"
           >
-            {label}{required && <img src={RequiredIcon} className="w-1.5 mb-2 ml-1 " alt="req" /> }
+            {label}
+            {required && (
+              <img src={RequiredIcon} className="w-1.5 mb-2 ml-1 " alt="req" />
+            )}
           </label>
         )}
         {type === "password" || showPassword ? (
@@ -123,15 +156,16 @@ export const Input = ({
 Input.propTypes = {
   color: PropTypes.string,
   bgColor: PropTypes.string,
+  labelColor: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.oneOf(["text", "number", "email", "password"]),
-  messageType: PropTypes.oneOf(["error", "success"]),
-  message: PropTypes.string,
+  defaultMessageType: PropTypes.oneOf(["error", "success"]),
+  defaultMessage: PropTypes.string,
   borderColor: PropTypes.string,
 };
 
 Input.defaultProps = {
   bgColor: "#EFF0F6",
   color: "#14142B",
-  type:"text"
+  type: "text",
 };

@@ -41,27 +41,27 @@ export const MultipleInputs = () => (<form style={{display:"flex", flexWrap:"wra
     <Input label="username" />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input label="User Name" icon={UserIcon} value="this is value" />
+    <Input label="User Name" icon={UserIcon} defaultValue="this is value" />
   </div>
   <div style={{margin:"20px 20px"}} >
     <Input icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input label="Username" messageType="error" message="Already taken" value="Alex@123" icon={UserIcon} />
+    <Input label="Username" defaultMessageType="error" defaultMessage="Already taken" defaultValue="Alex@123" icon={UserIcon} />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input label="Instagram"  message="Username Available"  messageType="success" value="Alex@007" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
+    <Input label="Instagram"  defaultMessage="Username Available"  defaultMessageType="success" defaultValue="Alex@007" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input placeholder="Password" value="1234@"  message="Password is week" messageType="error" type="password" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
+    <Input placeholder="Password" defaultValue="1234@"  defaultMessage="Password is week" defaultMessageType="error" type="password" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input label="Your Label"  message="Everything great" messageType="success" icon={UserIcon} />
+    <Input label="Your Label"  defaultMessage="Everything great" defaultMessageType="success" icon={UserIcon} />
   </div>
   <div style={{margin:"20px 20px"}} >
     <Input label="Your Label here"  placeholder="Your Place holder" icon={UserIcon} bgColor="white" borderColor="black"  style={{width:"600px" , height:"46px"}} />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input label="Enter Password" type="password" required value="1234" placeholder="Your Place holder" icon={UserIcon} bgColor="skyblue"   style={{width:"600px" , height:"46px"}} />
+    <Input label="Enter Password" type="password" labelColor="red" required defaultValue="1234" placeholder="Your Place holder" icon={UserIcon} bgColor="skyblue"   style={{width:"600px" , height:"46px"}} />
   </div>
   </form>) 
