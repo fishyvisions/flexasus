@@ -41,6 +41,9 @@ export const MultipleInputs = () => (<form style={{display:"flex", flexWrap:"wra
     <Input label="username" />
   </div>
   <div style={{margin:"20px 20px"}} >
+    <Input placeholder="only Placeholder" placeholderColor="purple" />
+  </div>
+  <div style={{margin:"20px 20px"}} >
     <Input label="User Name" icon={UserIcon} defaultValue="this is value" />
   </div>
   <div style={{margin:"20px 20px"}} >
@@ -53,7 +56,7 @@ export const MultipleInputs = () => (<form style={{display:"flex", flexWrap:"wra
     <Input label="Instagram"  defaultMessage="Username Available"  defaultMessageType="success" defaultValue="Alex@007" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Input placeholder="Password" defaultValue="1234@"  defaultMessage="Password is week" defaultMessageType="error" type="password" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
+    <Input placeholder="Password" defaultValue="1234@"  defaultMessage="Password is weak" defaultMessageType="error" type="password" icon="http://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" />
   </div>
   <div style={{margin:"20px 20px"}} >
     <Input label="Your Label"  defaultMessage="Everything great" defaultMessageType="success" icon={UserIcon} />
@@ -63,5 +66,8 @@ export const MultipleInputs = () => (<form style={{display:"flex", flexWrap:"wra
   </div>
   <div style={{margin:"20px 20px"}} >
     <Input label="Enter Password" type="password" labelColor="red" required defaultValue="1234" placeholder="Your Place holder" icon={UserIcon} bgColor="skyblue"   style={{width:"600px" , height:"46px"}} />
+  </div>
+  <div style={{margin:"20px 20px"}} >
+    <Input label="Simple message"  defaultMessage="Welcome to the team" messageColor="purple" icon={UserIcon} />
   </div>
   </form>) 

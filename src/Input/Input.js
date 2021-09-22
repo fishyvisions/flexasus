@@ -5,6 +5,7 @@ import cx from "classnames";
 import RequiredIcon from "../assets/Input/required.svg";
 import Hidden from "../assets/Input/hidden.svg";
 import Visible from "../assets/Input/visible.svg";
+import { css } from '@emotion/css'
 
 export const Input = ({
   label,
@@ -18,10 +19,13 @@ export const Input = ({
   color,
   labelColor,
   borderColor,
+  placeholderColor,
+  messageColor,
   style,
   required,
   field,
   form,
+  focusColor,
   ...props
 }) => {
   const { value, onChange } = field || {};
@@ -30,6 +34,15 @@ export const Input = ({
   const [showPassword, setShowPassword] = useState(false);
   const [messageType, setMessageType] = useState(defaultMessageType);
   const [message, setMessage] = useState(defaultMessage);
+
+  const inputStyleClass = css`
+    &:focus{
+      box-shadow: 0px 0px 2px  ${focusColor};
+    }
+    &::placeholder{
+    color:${placeholderColor};
+  }
+`
 
   useEffect(() => {
     if (errors || submitCount > 0) {
@@ -82,6 +95,7 @@ export const Input = ({
         {icon && <img src={icon} alt="icon" className="input-icon" />}
         <input
           type={(type === "password" && showPassword && "text") || type}
+          className={inputStyleClass}
           style={{
             background:
               (messageType === "error" && "#FFECFC") ||
@@ -148,7 +162,7 @@ export const Input = ({
         (messageType === "success" && message && (
           <p className="text-green-400 text-xs pl-3">{message}</p>
         )) ||
-        (message && <p className="text-grey-400 text-xs pl-3">{message}</p>)}
+        (message && <p style={{color:messageColor}} className="text-xs pl-3">{message}</p>)}
     </div>
   );
 };
@@ -162,10 +176,14 @@ Input.propTypes = {
   defaultMessageType: PropTypes.oneOf(["error", "success"]),
   defaultMessage: PropTypes.string,
   borderColor: PropTypes.string,
+  placeholderColor: PropTypes.string,
+  messageColor:PropTypes.string,
+  focusColor:PropTypes.string,
 };
 
 Input.defaultProps = {
   bgColor: "#EFF0F6",
   color: "#14142B",
   type: "text",
+  focusColor:"#0066ff"
 };
