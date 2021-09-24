@@ -1,41 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./input.css";
+import "./textarea.css";
 import cx from "classnames";
 import RequiredIcon from "../assets/Input/required.svg";
-import Hidden from "../assets/Input/hidden.svg";
-import Visible from "../assets/Input/visible.svg";
 import { css } from '@emotion/css'
 
-export const Input = ({
+export const Textarea = ({
   label,
-  defaultValue,
   placeholder,
-  icon,
-  type,
-  defaultMessageType,
-  defaultMessage,
   bgColor,
   color,
   labelColor,
   borderColor,
   placeholderColor,
-  messageColor,
   style,
   required,
+  focusColor,
+  resize,
+  defaultMessageType,
+  defaultMessage,
+  children,
+  defaultValue,
   field,
   form,
-  focusColor,
   ...props
 }) => {
   const { value, onChange } = field || {};
   const { errors, setFieldValue, submitCount } = form || {};
-  const [inputValue, setinputValue] = useState(value || defaultValue);
-  const [showPassword, setShowPassword] = useState(false);
+  const [textareaValue, setTextareaValue] = useState(value || defaultValue || children );
   const [messageType, setMessageType] = useState(defaultMessageType);
   const [message, setMessage] = useState(defaultMessage);
 
-  const inputStyleClass = css`
+  const textareaStyleClass = css`
     &:focus{
       box-shadow: 0px 0px 2px  ${focusColor};
     }
@@ -46,70 +42,69 @@ export const Input = ({
 
   useEffect(() => {
     if (errors || submitCount > 0) {
-      if (inputValue?.length > 0 || submitCount > 0) {
+      if (textareaValue?.length > 0 || submitCount > 0) {
         setMessageType(
           errors[field?.name]
             ? "error"
-            : inputValue?.length > 0
+            : textareaValue?.length > 0
             ? "success"
             : ""
         );
         setMessage(errors[field?.name]);
       }
     }
-  }, [errors, inputValue, submitCount]);
+  }, [errors, textareaValue, submitCount]);
 
-  let inputClass = cx(
+  let textareaClass = cx(
     {
-      "input-default": !label && !icon,
+      "textarea-default": !label ,
     },
     {
-      "input-with-label": label,
+      "textarea-with-label": label,
     },
     {
-      "input-with-icon": icon,
-    },
-    {
-      "input-with-icon-only": !label && icon,
-    },
-    {
-      keepUp: inputValue?.length > 0 || field?.value?.length > 0,
+      keepUp: textareaValue?.length > 0 || field?.value?.length > 0,
     },
     "mb-2"
   );
 
-  const clearInput = () => {
+  const clearTextarea = () => {
     if (form) {
       setFieldValue(field?.name, "");
     }
-    setinputValue("");
+    setTextareaValue("");
   };
-  const passwordToggle = () => {
-    setShowPassword(!showPassword);
+  const onChangeValue = (e) => {
+    setTextareaValue(e.target.value)
   };
-  const onChangeValue = (e) => setinputValue(e.target.value);
 
   return (
-    <div className={inputClass}>
+    <div className={textareaClass}>
       <div className="flex items-center mb-1">
-        {icon && <img src={icon} alt="icon" className="input-icon" />}
-        <input
-          type={(type === "password" && showPassword && "text") || type}
-          className={inputStyleClass}
+
+        <textarea
+
           style={{
             background:
               (messageType === "error" && "#FFECFC") ||
               (messageType === "success" && "#EAF9DE") ||
               bgColor,
-            border: `1px solid ${
+            boxShadow: `0 0 2px 0  ${
               (messageType === "error" && "#CA024F") ||
               (messageType === "success" && "#008A00") ||
               borderColor
             }`,
+            resize:resize,
+            
             color: color,
+            borderTop: (messageType === "error" && textareaValue?.length > 0 && label && `19px solid ${"#FFECFC"}` ) ||
+            (messageType === "success" && label && textareaValue?.length > 0 && `19px solid ${"#EAF9DE"}`) ||  label && textareaValue?.length > 0 && `19px solid ${bgColor}` ,
+            paddingTop: label && textareaValue?.length > 0 && `0px` ,
             ...style,
           }}
-          value={inputValue || ""}
+
+          className={textareaStyleClass}
+          value={textareaValue || ""}
           onKeyUp={onChangeValue}
           placeholder={placeholder}
           required={required}
@@ -133,24 +128,11 @@ export const Input = ({
             )}
           </label>
         )}
-        {type === "password" || showPassword ? (
+
           <button
+            className="textarea-clear-button"
             type="button"
-            onClick={passwordToggle}
-            style={{ marginLeft: "-28px" }}
-            className="input-clear-button"
-          >
-            {showPassword ? (
-              <img src={Visible} alt="icon" className="w-4" />
-            ) : (
-              <img src={Hidden} alt="icon" className="w-4" />
-            )}
-          </button>
-        ) : (
-          <button
-            className="input-clear-button"
-            type="button"
-            onClick={clearInput}
+            onClick={clearTextarea}
             style={{
               color:
                 (messageType === "error" && "#9E0038") ||
@@ -160,7 +142,6 @@ export const Input = ({
           >
             X
           </button>
-        )}
       </div>
       {(messageType === "error" && message && (
         <p className="text-red-500 text-xs pl-3">{message}</p>
@@ -168,28 +149,28 @@ export const Input = ({
         (messageType === "success" && message && (
           <p className="text-green-400 text-xs pl-3">{message}</p>
         )) ||
-        (message && <p style={{color:messageColor}} className="text-xs pl-3">{message}</p>)}
+        (message && <p className="text-grey-400 text-xs pl-3">{message}</p>)}
     </div>
   );
 };
 
-Input.propTypes = {
+Textarea.propTypes = {
   color: PropTypes.string,
   bgColor: PropTypes.string,
   labelColor: PropTypes.string,
-  label: PropTypes.string,
-  type: PropTypes.oneOf(["text", "number", "email", "password"]),
+  label: PropTypes.string, 
+  resize: PropTypes.oneOf(["auto", "vertical", "horizontal", "none"]),
   defaultMessageType: PropTypes.oneOf(["error", "success"]),
   defaultMessage: PropTypes.string,
   borderColor: PropTypes.string,
   placeholderColor: PropTypes.string,
-  messageColor:PropTypes.string,
-  focusColor:PropTypes.string,
+  placeholder: PropTypes.string,
+  focusColor: PropTypes.string,
 };
 
-Input.defaultProps = {
+Textarea.defaultProps = {
   bgColor: "#EFF0F6",
   color: "#14142B",
-  type: "text",
-  focusColor:"#0066ff"
+  resize:"auto",
+  focusColor:"#0066ff",
 };
