@@ -62,14 +62,20 @@ export const Checkbox = ({
         <input type="checkbox" id={uId} {...props} {...field} />
         <label htmlFor={uId}></label>
       </div>
-      {label && (
-        <p
-          style={{ color: haveError ? "#CA024F" : labelColor , ...labelStyle }}
-          className="text-small"
-        >
-          {label}
-        </p>
+      {label && ( <label htmlFor={uId}> 
+            <p
+              style={{
+                color: haveError ? "#CA024F" : labelColor,
+                paddingLeft: 10,
+                ...labelStyle,
+              }}
+              className="text-small"
+            >
+              {label}
+            </p>
+        </label>
       )}
+      
     </div>
   );
 };
