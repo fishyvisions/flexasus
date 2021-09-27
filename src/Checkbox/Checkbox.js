@@ -52,7 +52,9 @@ export const Checkbox = ({
 
   useEffect(() => {
     if (errors && submitCount > 0) {
-      setHaveError(true);
+      if(errors[field.name]){
+        setHaveError(true);
+      }
     }
   }, [errors, submitCount]);
 
