@@ -6,4 +6,5 @@ export {Input} from './Input/Input'
 export {Checkbox} from './Checkbox/Checkbox'
 export {Textarea} from './Textarea/Texarea'
 export {Radio} from './Radio/Radio'
+export {Toggle} from './Toggle/Toggle'
  

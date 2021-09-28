@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./textarea.css";
-import cx from "classnames";
 import RequiredIcon from "../assets/Input/required.svg";
-import { css } from '@emotion/css'
+import { css, cx } from "@emotion/css";
 
 export const Textarea = ({
   label,
