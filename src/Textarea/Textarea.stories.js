@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-import {Textarea}  from './Texarea';
+import {Textarea}  from '../index'
 
 export default {
   component: Textarea,
@@ -14,8 +14,6 @@ const Template = (args) => <Textarea {...args} />;
 
 
 export const DefaultTextArea = Template.bind({});
-
-
 
 
 

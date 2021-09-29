@@ -60,6 +60,7 @@
     "autoprefixer": "^9",
     "postcss": "^8.3.6",
     "postcss-cli": "^8.3.1",
+    "storybook-formik": "^2.1.8",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
