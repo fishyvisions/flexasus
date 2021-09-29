@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./button.css";
-import cx from "classnames";
+import { cx } from "@emotion/css";
 
 export const Button = ({
   label,

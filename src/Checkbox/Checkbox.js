@@ -1,8 +1,7 @@
-import { css } from "@emotion/css";
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./checkbox.css";
-import cx from "classnames";
+import { css, cx } from "@emotion/css";
 
 export const Checkbox = ({
   color,
@@ -68,6 +67,7 @@ export const Checkbox = ({
             <p
               style={{
                 color: haveError ? "#CA024F" : labelColor,
+                cursor: "pointer",
                 paddingLeft: 10,
                 ...labelStyle,
               }}
