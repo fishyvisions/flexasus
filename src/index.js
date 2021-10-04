@@ -8,4 +8,5 @@ export {Textarea} from './Textarea/Texarea'
 export {Radio} from './Radio/Radio'
 export {Toggle} from './Toggle/Toggle'
 export {IncrementStepper} from './Increment-Stepper/IncrementStepper'
+export {Slider} from './Slider/Slider'
   
