@@ -20,7 +20,7 @@ export const IncrementStepper = ({
   const { setFieldValue } = form || {};
 
   let incrementClass = cx("flex", {
-    "flex-col ": align === "vertical",
+    "flex-col items-center ": align === "vertical",
   });
 
   useEffect(() => {
