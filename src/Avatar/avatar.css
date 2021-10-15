@@ -1,0 +1,76 @@
+.avatar-container{
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center; 
+    min-width: 70px;
+}
+
+.main-avatar-div{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #610BEF;
+}
+
+.main-avatar-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+
+.active-status {
+    width: 14px;
+    height: 14px;
+    background-color: seagreen;
+    border-radius: 50%;
+    margin-left: 52px;
+    margin-top: -20px;
+    border: 2px solid white;
+    position: absolute;
+} 
+
+.avatar-text{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    font-size: 28px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-transform: capitalize;
+
+}
+
+.avatar-container-small{
+    width: auto;
+    height: auto;
+    min-height: 54px;
+    min-width: 54px;
+}
+
+.avatar-container-small  .main-avatar-div {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+
+}
+
+.avatar-container-small .active-status{
+    margin-left: 40px;
+}
+
+.avatar-container-small .avatar-text{
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+}
+ 
