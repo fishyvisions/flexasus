@@ -12,6 +12,21 @@ module.exports = {
         medium: "16px",
         large: "18px",
         wide: "15px",
+        header_huge:"64px",
+        header_large:"56px",
+        header_medium:"48px",
+        header_small:"32px",
+        header_tiny:"24px",
+        mobile_header_huge:"38px",
+        mobile_header_large:"28px",
+        mobile_header_medium:"24px",
+        mobile_header_small:"22px",
+        mobile_header_tiny:"20px",
+
+        text_large:"20px",
+        text_medium:"18px",
+        text_small:"15px",
+        text_tiny:"13px",
       },
       borderWidth: {
         DEFAULT: "1px",
@@ -31,6 +46,18 @@ module.exports = {
         'none':"0px"
       }
     },
+    lineHeight: {
+      header_huge:"88px",
+      header_large:"72px",
+      header_medium:"56px",
+      header_small:"48px",
+      header_tiny:"32px",
+
+      text_large:"32px",
+      text_medium:"28px",
+      text_small:"24px",
+      text_tiny:"22px",
+    }
     
   },
   variants: {
