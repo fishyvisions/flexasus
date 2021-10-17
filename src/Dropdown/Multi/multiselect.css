@@ -1,0 +1,63 @@
+
+.selected-div{
+    align-items: center;
+    background-color: #f5f5f5;
+    border: 2px solid rgba(0, 0, 0, 0.42);
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap; 
+    min-height: 50px;
+    padding: 2px 10px;
+    width: 400px;
+    padding-bottom: 5px;
+    border-radius: 16px;
+    padding-right: 20px;
+}
+.dropdown-for-multiselect{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px; 
+    position: absolute;
+    z-index: 100;
+    border-radius: 10px;
+    max-height: 250px;
+    overflow-y: scroll;
+    cursor: pointer;
+}
+
+.selected-div ul{
+    flex: 0 1 auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-wrap:inherit;
+  }
+
+.selected-div button{
+    background-color: #6200ee;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-top: 3px;
+    padding: 2px 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .selected-div input {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    cursor: pointer;
+    padding: 2px 10px;
+    background-color: transparent;
+  }
