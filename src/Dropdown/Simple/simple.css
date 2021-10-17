@@ -1,0 +1,47 @@
+.simple-select-div input {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 240px;
+    height: 50px;
+    padding: 0 4em 0 1em;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+  
+  .simple-select-div input:focus {
+      outline: none;
+      
+    }
+  
+  input::-ms-expand {
+      display: none;
+    }
+
+
+.dropdown-for-select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 240px;
+    margin-top: 5px; 
+    position: absolute;
+    z-index: 100;
+    border-radius: 10px;
+    max-height: 250px;
+    overflow-y: scroll;
+    cursor: pointer;
+    
+}
+
+
+.select-options{
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.select-options:hover {
+    background-color: #cde3fa;
+}
