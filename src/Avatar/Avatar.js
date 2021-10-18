@@ -72,7 +72,7 @@ export const Avatar = ({
         </div>
         {label &&
         <div style={{paddingLeft:labelAlign === "right"&&"14px", paddingRight:labelAlign ==="left"&&"14px"}} > 
-            <p className="text-text_small pl-0.5 font-semibold capitalize "style={{color:labelColor }} >{name}</p>
+            <p className="text-text_small pl-0.5 font-semibold capitalize "style={{color:labelColor, marginTop:labelAlign ==="bottom" && "5px" }} >{name}</p>
             {active && labelAlign !=="bottom"   && <p  style={{color:activeColor}}  className="text-text_small pl-1.5 -mt-1 " > online </p> }
         </div>
         }

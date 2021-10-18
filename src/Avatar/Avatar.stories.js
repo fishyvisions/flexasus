@@ -43,7 +43,7 @@ export const MultipleAvatar = () => (<form style={{display:"flex", flexWrap:"wra
     <Avatar  name="Amy Jackson" img={AvatarImage} borderColor="#BFBEFC" size="small" />
   </div>
   <div style={{margin:"20px 20px"}} >
-    <Avatar  img="https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"  name="William Brown"  labelAlign="right" active="true" label={true}  size="small" />
+    <Avatar  img="https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"  name="William Brown"  labelAlign="right" active={true} label={true}  size="small" />
   </div>
   <div style={{margin:"20px 20px"}} >
     <Avatar  img={AvatarImage} borderColor="#FFA3FD" active={true} label={true}  size="small" />
