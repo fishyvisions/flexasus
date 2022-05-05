@@ -7,7 +7,7 @@
     commands:
       - n latest
       - echo Building...
-      - yarn build
+      - yarn build-storybook
       - ls -la
       - ls -la build
 
