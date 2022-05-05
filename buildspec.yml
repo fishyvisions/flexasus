@@ -1,0 +1,18 @@
+ pre_build:
+    commands:
+      - echo Installing dependencies..
+      - yarn --verbose
+
+  build:
+    commands:
+      - n latest
+      - echo Building...
+      - yarn build
+      - ls -la
+      - ls -la build
+
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build
